@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Session Viewer</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div>
+            <h1>AI Session Viewer</h1>
+            <p>Local session browser</p>
+          </div>
+        </div>
+
+        <div class="field folder-field">
+          <span>Folders</span>
+          <div id="folderList" class="folder-list" aria-label="Session folders"></div>
+        </div>
+
+        <div class="stats">
+          <div>
+            <span id="visibleCount">0</span>
+            <small>sessions</small>
+          </div>
+          <div>
+            <span id="folderCount">0</span>
+            <small>folders</small>
+          </div>
+        </div>
+
+        <button id="refreshButton" class="button ghost" type="button" title="Refresh sessions">
+          <span class="icon" data-icon="refresh"></span>
+          Refresh
+        </button>
+      </aside>
+
+      <main class="content">
+        <header class="toolbar">
+          <div>
+            <h2 id="mainTitle">All sessions</h2>
+            <p id="subtitle">All local AI sessions grouped by folder.</p>
+          </div>
+          <div id="statusText" class="status">Ready</div>
+        </header>
+
+        <label class="field content-search">
+          <span>Search sessions</span>
+          <input id="searchInput" type="search" placeholder="Search title, prompt, folder, or id">
+        </label>
+
+        <section class="list" aria-label="AI session list">
+          <div class="list-head">
+            <span></span>
+            <span>Title</span>
+            <span>Updated</span>
+            <span>Messages</span>
+            <span>ID</span>
+            <span></span>
+          </div>
+          <div id="sessionRows" class="rows"></div>
+        </section>
+      </main>
+
+      <aside id="detailPanel" class="detail">
+        <div class="empty-state">
+          <span class="empty-icon icon" data-icon="terminal"></span>
+          <h2>Select a session</h2>
+          <p>Choose a row to inspect its path, prompt preview, file size, and delete action.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div id="confirmModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="modal-panel">
+        <h2 id="confirmTitle">Delete session</h2>
+        <p id="confirmText"></p>
+        <div class="modal-actions">
+          <button id="cancelDelete" class="button ghost" type="button">Cancel</button>
+          <button id="confirmDelete" class="button danger" type="button">
+            <span class="icon" data-icon="trash"></span>
+            Move to trash
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="chatModal" class="modal chat-modal hidden" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
+      <div class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <span class="label">Session chat</span>
+            <h2 id="chatTitle">Chat preview</h2>
+            <p id="chatMeta" class="detail-muted"></p>
+          </div>
+          <button id="closeChat" class="icon-button" type="button" title="Close chat">
+            <span class="icon" data-icon="close"></span>
+          </button>
+        </header>
+        <div id="chatTranscript" class="chat-transcript"></div>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

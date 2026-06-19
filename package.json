@@ -1,0 +1,16 @@
+{
+  "name": "ai-session-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local web UI for browsing, previewing, and deleting AI session logs.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "autostart:install": "bash scripts/install-autostart.sh",
+    "autostart:uninstall": "bash scripts/uninstall-autostart.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

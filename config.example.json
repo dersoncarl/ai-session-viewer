@@ -1,0 +1,6 @@
+{
+  "sessionHome": "$HOME/.ai-sessions",
+  "port": 8787,
+  "cacheTtlMs": 5000,
+  "deleteMode": "archive"
+}

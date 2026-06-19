@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+config.json
+.runtime.json
+.url
+logs/
+node_modules/
+*.zip
+.DS_Store
+*.bak.*
